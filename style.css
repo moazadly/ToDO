@@ -1,0 +1,327 @@
+/* Trees Image - Pexels: https://www.pexels.com/photo/photo-of-trees-in-forest-3801030/ */
+@import url("https://fonts.googleapis.com/css?family=Quicksand&display=swap");
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-size: cover;
+  background-position: 50% 60%;
+  background-attachment: fixed;
+}
+
+.main{
+  display: flex;
+  height: 100%;
+  font-family: "Quicksand", sans-serif;
+}
+.secound{
+  margin-left: auto;
+  background-color: rgb(255, 255, 255);
+  width: 50%;
+  margin-top: -25px;
+  height: 100%;
+  box-shadow: 10px 10px 20px 10px rgb(0 0 0 / 5%);}
+
+.main-title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.drag-container {
+  width: 500px;
+  margin: 20px;
+}
+
+.drag-list {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Columns */
+.drag-column {
+  flex: 1;
+  margin: 0 10px;
+  position: relative;
+  border-radius: 10px;
+  overflow-x: hidden;
+  max-height: 590px;
+}
+
+ .header,
+ .solid,
+ .solid:hover,
+ .over {
+  background-color:rgb(255, 226, 221,0.3);
+}
+
+
+
+.header {
+  display: flex;
+  width: 70px;
+  border-radius: 10px;
+  margin: 10px;
+  padding-left: 10px;
+}
+
+.header h1 {
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+/* Drag and Drop */
+.over {
+  padding: 50px 10px;
+}
+
+.drag-item-list {
+  min-height: 50px;
+
+}
+
+.drag-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  padding: 10px;
+  width: 400px;
+  height: 30px;
+  border-radius: 6px;
+  line-height: 1.5rem;
+  letter-spacing: 1px;
+  border: #DBEDDB 1px solid ;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: 10px 10px 20px 0 rgba(0, 0, 0, 0.05);
+}
+
+.drag-item:focus {
+  outline: none;
+  background-color: white;
+  color: black;
+}
+.drag-item:hover {
+  background-color: #F7F7F7;
+}
+.drag-item .date{
+  font-size: 14px;
+  font-weight: 500;
+  position: relative;
+  bottom: 110px;
+  width: 90px;
+}
+.task-tilte{
+  width: 300px;
+}
+/* Add Button Group */
+.add-btn-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-btn {
+  margin: 10px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: fit-content;
+  border-radius: 5px;
+  transition: all 0.3s ease-in;
+  user-select: none;
+  color: black;
+}
+
+.add-btn:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+
+}
+
+.add-btn:active {
+  transform: scale(0.97);
+}
+
+.solid {
+  display: none;
+}
+
+.solid:hover {
+  transition: unset;
+  filter: brightness(95%);
+  color: white;
+}
+
+.plus-sign {
+  font-size: 1.5rem;
+  margin-right: 5px;
+  position: relative;
+  top: -3px;
+}
+
+.add-container {
+  margin: 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  min-height: 100px;
+  display: none;
+}
+
+.add-item {
+  width: 100%;
+  min-height: 100px;
+  height: auto;
+  background-color: white;
+  border-radius: 10px;
+  margin: 5px auto;
+  resize: none;
+  color: black;
+  padding: 10px;
+}
+
+.add-item:focus {
+  outline: none;
+}
+.container{
+  width: 70%;
+  margin: 20px;
+}
+
+.title{
+  margin-top: 33px;
+}
+.completed{
+  margin-top: 30px;
+}
+.title,
+.date,
+.discription,
+.completed{
+margin-left: 25px;
+padding-top: 30px;
+}
+.date,
+.discription{
+  margin-top: 80px;
+  width: 100%;
+}
+.title input[type="text"],
+        textarea{
+          border: none;
+          background-color: transparent;
+          font-size: 38px;
+          color: black;
+        }
+.title input[type="text"]::placeholder{
+          color: #cccccc74;
+          font-weight: bold;
+        }
+input[type="text"]:focus,
+textarea:focus{
+          border: none;
+          outline: none;
+}
+.message-input {
+          width: 650px;
+          height: 100px;
+          resize: none;
+      }
+        .message-input input[type="text"],
+        textarea{
+          border: none;
+          background-color: transparent;
+          font-size: 18px;
+          color: black;
+        }
+        input[type="date"] {
+          width: 120px;
+          height: 10px;
+          padding: 8px;
+          font-size: 16px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+        }
+    .custom-date-input:focus {
+      outline: none;
+      border-color: #66afe9;
+
+    }
+.date-text{
+  margin-right: 120px;
+  font-weight: 500;
+}
+
+.Deadline,
+.text-completed,
+.message-input::placeholder{
+  color: #AFAEAC;
+  font-size: 18px;
+  font-weight: 600;
+  margin-right: 15px;
+}
+.Deadline{
+  margin-right: 35px;
+}
+.custom-date-input{
+  margin-left: -40px;
+}
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin-top: 145px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+  width: 100px;
+  border-radius: 4px;
+  font-size: 18px;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Float cancel and delete buttons and add an equal width */
+.savebtn {
+  margin-left: 200px;
+  margin-right: 120px;
+}
+.deletebtn {
+  background-color: #f44336;
+}
+
+/* Media Query: Laptop */
+@media screen and (max-width: 1800px) {
+
+}
+
+/* Media Query: Large Smartphone (Vertical) */
+@media screen and (max-width: 600px) {
+  body {
+    overflow-y: auto;
+  }
+  .drag-container {
+    margin: 0;
+  }
+
+  .drag-list {
+    display: block;
+  }
+
+  .drag-column {
+    margin: 10px;
+  }
+}
