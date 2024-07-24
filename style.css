@@ -1,244 +1,121 @@
-/* Trees Image - Pexels: https://www.pexels.com/photo/photo-of-trees-in-forest-3801030/ */
-@import url("https://fonts.googleapis.com/css?family=Quicksand&display=swap");
-
-html {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  background-size: cover;
-  background-position: 50% 60%;
-  background-attachment: fixed;
-}
-
-.main{
-  display: flex;
-  height: 100%;
-  font-family: "Quicksand", sans-serif;
-}
-.secound{
-  margin-left: auto;
-  background-color: rgb(255, 255, 255);
-  width: 50%;
-  margin-top: -25px;
-  height: 100%;
-  box-shadow: 10px 10px 20px 10px rgb(0 0 0 / 5%);}
-
-.main-title {
-  text-align: center;
-  font-size: 3rem;
-  font-weight: 900;
-  letter-spacing: 2px;
-}
-
-ul {
-  list-style-type: none;
+*{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
-
-.drag-container {
-  width: 500px;
-  margin: 20px;
+.lists {
+  max-height: 83vh;
+  overflow-y: auto;
 }
-
-.drag-list {
-  display: flex;
-  align-items: flex-start;
+ul {
+  padding: 0;
+  list-style: none;
 }
-
-/* Columns */
-.drag-column {
-  flex: 1;
-  margin: 0 10px;
-  position: relative;
-  border-radius: 10px;
-  overflow-x: hidden;
-  max-height: 590px;
+ul li {
+  margin-bottom: 10px;
 }
-
- .header,
- .solid,
- .solid:hover,
- .over {
-  background-color:rgb(255, 226, 221,0.3);
+.break-word {
+  word-break: break-word; /* Ensure long words break */
+  overflow-wrap: break-word;}
+li{
+  box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px;
+  padding: 8px 0px 6px 6px;  
+  border-radius: 3px;
 }
-
-
-
-.header {
-  display: flex;
-  width: 70px;
-  border-radius: 10px;
-  margin: 10px;
-  padding-left: 10px;
-}
-
-.header h1 {
-  font-size: 1.25rem;
-  font-weight: 900;
-}
-
-/* Drag and Drop */
-.over {
-  padding: 50px 10px;
-}
-
-.drag-item-list {
-  min-height: 50px;
-
-}
-
-.drag-item {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px;
-  padding: 10px;
-  width: 400px;
-  height: 30px;
-  border-radius: 6px;
-  line-height: 1.5rem;
-  letter-spacing: 1px;
-  border: #DBEDDB 1px solid ;
+li:hover{
   cursor: pointer;
-  font-size: 18px;
-  font-weight: 600;
-  box-shadow: 10px 10px 20px 0 rgba(0, 0, 0, 0.05);
-}
-
-.drag-item:focus {
-  outline: none;
-  background-color: white;
-  color: black;
-}
-.drag-item:hover {
   background-color: #F7F7F7;
 }
-.drag-item .date{
-  font-size: 14px;
-  font-weight: 500;
-  position: relative;
-  bottom: 110px;
-  width: 90px;
+.fa-check{
+  font-size: 48px;
 }
-.task-tilte{
-  width: 300px;
+p,h2{
+  margin: 0;
 }
-/* Add Button Group */
-.add-btn-group {
-  display: flex;
-  justify-content: space-between;
+.lists .todo .tasks-title{
+  background-color: #ffe2dd;
+  width: fit-content;
+  border-radius: 4px;
+  margin-top: auto;
+  padding: 5px 8px;
+  font-size: 1rem;
 }
-
+.lists .done .tasks-title{
+  background-color: #dbeddb;
+  width: 15%;
+  border-radius: 4px;
+  text-align: center;
+  padding: 5px 5px;
+  font-size: 1rem;
+}
 .add-btn {
-  margin: 10px;
-  padding: 5px 10px;
+  padding: 0px 8px;
   display: flex;
-  align-items: center;
+  align-items:  center;
   cursor: pointer;
   width: fit-content;
   border-radius: 5px;
-  transition: all 0.3s ease-in;
   user-select: none;
   color: black;
+  font-size: 1rem;
 }
-
-.add-btn:hover {
-  background-color: rgba(255, 255, 255, 0.9);
-
+.add-btn:hover{
+  background-color: #f4f0f0;
 }
-
-.add-btn:active {
-  transform: scale(0.97);
-}
-
-.solid {
-  display: none;
-}
-
-.solid:hover {
-  transition: unset;
-  filter: brightness(95%);
-  color: white;
-}
-
-.plus-sign {
-  font-size: 1.5rem;
-  margin-right: 5px;
-  position: relative;
-  top: -3px;
-}
-
-.add-container {
-  margin: 10px;
-  padding: 5px 10px;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.9);
-  min-height: 100px;
-  display: none;
-}
-
-.add-item {
-  width: 100%;
-  min-height: 100px;
-  height: auto;
-  background-color: white;
-  border-radius: 10px;
-  margin: 5px auto;
-  resize: none;
-  color: black;
-  padding: 10px;
-}
-
-.add-item:focus {
-  outline: none;
-}
-.container{
-  width: 70%;
-  margin: 20px;
-}
-
-.title{
-  margin-top: 33px;
-}
-.completed{
-  margin-top: 30px;
+.form-check-input:focus {
+  box-shadow: none;
+  border: 1px solid #dee2e6;
 }
 .title,
-.date,
-.discription,
-.completed{
-margin-left: 25px;
-padding-top: 30px;
-}
-.date,
-.discription{
-  margin-top: 80px;
-  width: 100%;
-}
-.title input[type="text"],
         textarea{
           border: none;
           background-color: transparent;
           font-size: 38px;
           color: black;
         }
-.title input[type="text"]::placeholder{
+.title::placeholder{
           color: #cccccc74;
           font-weight: bold;
         }
-input[type="text"]:focus,
 textarea:focus{
           border: none;
           outline: none;
 }
-.message-input {
-          width: 650px;
-          height: 100px;
+.form{
+  margin-top: -115px;
+  box-shadow: rgb(15 15 15 / 20%) 3px 4px 10px 2px;
+  height: 100vh;
+}
+.message-input{
+  height: 120px;
+  margin-bottom: 25px;
+}
+.header .add{
+  visibility: hidden; 
+  color: #959491;
+  border-radius: 5px;
+  font-weight: 500;
+  padding: 2px 10px;
+  margin-top: auto;
+}
+
+.header:hover .add{
+  visibility: visible; 
+
+}
+.header .add:hover{
+  background-color: #F7F7F7;
+  cursor: pointer;
+}
+.title{
+  height: 100px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+.message-input,.title{
           resize: none;
       }
-        .message-input input[type="text"],
+        .message-input input[type="text"],.title ,
         textarea{
           border: none;
           background-color: transparent;
@@ -246,7 +123,6 @@ textarea:focus{
           color: black;
         }
         input[type="date"] {
-          width: 120px;
           height: 10px;
           padding: 8px;
           font-size: 16px;
@@ -263,65 +139,55 @@ textarea:focus{
   font-weight: 500;
 }
 
+.created-date,
 .Deadline,
 .text-completed,
-.message-input::placeholder{
-  color: #AFAEAC;
+.message-input::placeholder,.title::placeholder{
+  color: #afacad;
   font-size: 18px;
   font-weight: 600;
-  margin-right: 15px;
+  margin-right: 20px;
 }
-.Deadline{
-  margin-right: 35px;
+.created-date span{
+  color: #313030;
+  margin-left: 12px;
+  font-size: 1rem;
 }
+ .fa-calendar{
+  font-size: 14px;
+  color: #AFAEAC;
+}
+
 .custom-date-input{
   margin-left: -40px;
 }
-button {
-  background-color: #04AA6D;
-  color: white;
-  padding: 14px 20px;
-  margin-top: 145px;
+.save-btn{
+  background-color: rgba(13, 169, 5, 0.8); /* Green background */
   border: none;
+  color: white; /* White text */
+  padding: 5px 20px; /* Padding for size */
+  text-align: center; /* Center the text */
+  font-size: 16px; /* Set font size */
+  font-weight: bold; /* Make text bold */
+  border-radius: 3px; /* Rounded corners */
+}
+.delete-btn{
+  background-color: rgba(192, 7, 7, 0.8); /* Green background */
+  border: none;
+  color: white; /* White text */
+  padding: 5px 20px; /* Padding for size */
+  text-align: center; /* Center the text */
+  font-size: 16px; /* Set font size */
+  font-weight: bold; /* Make text bold */
+  border-radius: 3px; /* Rounded corners */
+}
+/* General styles for the date input */
+.custom-date-input {
+  padding: 15px !important;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
+  outline: none;
   cursor: pointer;
-  opacity: 0.9;
-  width: 100px;
-  border-radius: 4px;
-  font-size: 18px;
-}
-
-button:hover {
-  opacity:1;
-}
-
-/* Float cancel and delete buttons and add an equal width */
-.savebtn {
-  margin-left: 200px;
-  margin-right: 120px;
-}
-.deletebtn {
-  background-color: #f44336;
-}
-
-/* Media Query: Laptop */
-@media screen and (max-width: 1800px) {
-
-}
-
-/* Media Query: Large Smartphone (Vertical) */
-@media screen and (max-width: 600px) {
-  body {
-    overflow-y: auto;
-  }
-  .drag-container {
-    margin: 0;
-  }
-
-  .drag-list {
-    display: block;
-  }
-
-  .drag-column {
-    margin: 10px;
-  }
 }
