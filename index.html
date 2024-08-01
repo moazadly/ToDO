@@ -12,65 +12,58 @@
 <body>
   <div class="container-fluid">
     <div class="row justify-content-between">
-      <h1 class="mt-3 mb-5"><i class="fa-solid fa-check me-2"></i>Task List</h1>
-      <div class="lists d-flex col-7 gap-4">
+      <div class="col-12 col-xl-7" id="list">   
+        <div class="header d-flex align-items-center mt-2 mb-5 flex-wrap col-12 gap-2">
+        <h1 class="col-12 col-xl-4"><i class="fa-solid fa-check me-2"></i>Task List</h1>
+        <div class="search col-6 col-xl-6 ms-3">
+          <i class="fa-solid fa-magnifying-glass search-icon" onclick="showSearch()" id="searchIcon"></i>
+          <input class="form-control py-2 hidden" list="datalistOptions" placeholder="Type to search..." id="search-input">
+        </div>
+        </div>
+        <div class="lists d-flex col-12 gap-2 gap-xl-4">
         <div class="todo mb-3 col-6">
           <div class="header d-flex justify-content-between">
             <h2 class="tasks-title">To Do</h2>
             <div class="add"><i class="fa-solid fa-plus"></i></div>
           </div>
           <ul class="d-flex flex-column mt-2">
-          <li class="d-flex justify-content-between">
-              <div class="task-title col-8 break-word"><p class="ps-1">HTML</p></div>
-              <div class="task-date col-3"><i class="fa-regular fa-calendar  pe-2"></i>2024/8/10</div>
-            </li>
-            <li class="d-flex justify-content-between">
-              <div class="task-title col-8 break-word"><p class="ps-1">CSS</p></div>
-              <div class="task-date col-3"><i class="fa-regular fa-calendar pe-2"></i>2024/8/10</div>
-            </li>
-            <li class="d-flex justify-content-between">
-              <div class="task-title col-8 break-word"><p class="ps-1">JavaScript</p></div>
-              <div class="task-date col-3"><i class="fa-regular fa-calendar pe-2"></i>2024/8/10</div>
-            </li>
+
           </ul>
-          <button class="btn btn-outline-success" (click)="clear()">
+          <button class="btn btn-outline-success addnew" type="submit">
             <span class="plus-sign pe-1 fs-5">+</span>
             <span>New</span>
           </button>
         </div>
-        <div class="done mb-3 col-5">
+        <div class="done mb-3 col-6 col-xl-5">
           <div class="header d-flex justify-content-between align-items-baseline"> 
             <h2 class="tasks-title">Done</h2>
           </div>
 
           <ul class="mt-2">
-            <li>
-              <div class="task-title"><p class="ps-1">first task</p></div>
-            </li>
-            
-            <!-- Continue adding tasks -->
           </ul>
         </div>
+        </div>
       </div>
-      <div class="form col-5 ps-5">
-        <form action="">
-          <div class="pt-5 title break-word"><textarea id="name" name="name" placeholder="Untitled" class="title w-100"></textarea></div>
-          <div class="pt-5 break-word "><textarea class="message-input w-100" id="message" placeholder="Discription of the task"></textarea></div>
+      <div class="form left-6 col-12 col-xl-5 ps-xl-5">
+        <form action="" id="formTask">
+          <div class="pt-1 pt-xl-5 title break-word"><textarea id="title" name="name" placeholder="Untitled" class="title w-100"></textarea></div>
+          <div class="py-2 pt-xl-5 break-word "><textarea class="message-input w-100" id="description" placeholder="Discription of the task"></textarea></div>
           <div class="d-flex">
               <label for="myCheckbox" class="text-completed">Task completed</label>
               <div>
-                <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
+                <input class="form-check-input ms-2" type="checkbox" id="complete" value="">
               </div>          
           </div>
-          <div class="created-date my-5 py-5"><i class="fa-regular fa-calendar pe-2"></i>Date Created <span>2024-7-24</span></div>
-          <div class="date my-5"><label class="date-text"><span class="Deadline"><i class="fa-regular fa-calendar pe-2"></i>The Deadline</span><span>2024-10-1</span></label><input type="date" id="birthday" class="custom-date-input"></div>
+          <div class="created-date my-5 py-3 py-xl-5"><i class="fa-regular fa-calendar pe-2"></i>Date Created <span id="created-date"></span></div>
+          <div class="date mb-5"><label class="date-text"><span class="Deadline"><i class="fa-regular fa-calendar pe-2"></i>The Deadline</span><span id="spandeadline" class="date-span"></span></label><input type="date" id="deadline" class="custom-date-input ms-1 mt-3 ms-xl-0 mt-xl-0"></div>
         </form>
-        <div class="buttons d-flex  gap-5 w-100 pt-5">
-          <button type="button" class="btn btn-outline-success">Save</button>
-          <button type="button" class="btn btn-outline-danger">Delete</button>
+        <div class="buttons d-flex  gap-5 w-100 pt-xl-3">
+          <button id="save-btn" type="button" class="btn btn-outline-success">Save</button>
+          <button id="delete-btn" type="button" class="btn btn-outline-danger">Delete</button>
         </div>
       </div>
     </div>
   </div>
+  <script src="./script.js"></script>
 </body>
 </html>

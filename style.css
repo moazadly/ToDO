@@ -3,10 +3,21 @@
   padding: 0;
   box-sizing: border-box;
 }
+body{
+  overflow: hidden;
+}
 .lists {
   max-height: 83vh;
-  overflow-y: auto;
 }
+.lists .todo .header, .lists .done .header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #fff;
+  width: calc(100% + 4px);
+}
+
 ul {
   padding: 0;
   list-style: none;
@@ -15,7 +26,7 @@ ul li {
   margin-bottom: 10px;
 }
 .break-word {
-  word-break: break-word; /* Ensure long words break */
+  word-break: break-word;
   overflow-wrap: break-word;}
 li{
   box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px;
@@ -34,6 +45,7 @@ p,h2{
 }
 .lists .todo .tasks-title{
   background-color: #ffe2dd;
+  margin-left: -2px;
   width: fit-content;
   border-radius: 4px;
   margin-top: auto;
@@ -42,9 +54,10 @@ p,h2{
 }
 .lists .done .tasks-title{
   background-color: #dbeddb;
-  width: 15%;
+  margin-left: -2px;
+  width: fit-content;
   border-radius: 4px;
-  text-align: center;
+  margin-top: auto;
   padding: 5px 5px;
   font-size: 1rem;
 }
@@ -66,6 +79,12 @@ p,h2{
   box-shadow: none;
   border: 1px solid #dee2e6;
 }
+.left-0{
+  left: 0;
+}
+.left-6{
+  left: 1650px
+}
 .title,
         textarea{
           border: none;
@@ -82,12 +101,15 @@ textarea:focus{
           outline: none;
 }
 .form{
-  margin-top: -115px;
   box-shadow: rgb(15 15 15 / 20%) 3px 4px 10px 2px;
+  position: relative;
   height: 100vh;
+  background-color: #fff;
+  z-index: 10000;
+  transition: left 0.4s ease;
 }
 .message-input{
-  height: 120px;
+  height: 130px;
   margin-bottom: 25px;
 }
 .header .add{
@@ -108,7 +130,7 @@ textarea:focus{
   cursor: pointer;
 }
 .title{
-  height: 100px;
+  height: 90px;
   margin-bottom: 15px;
   font-weight: bold;
 }
@@ -146,14 +168,17 @@ textarea:focus{
   color: #afacad;
   font-size: 18px;
   font-weight: 600;
-  margin-right: 20px;
+}
+.date-span{
+  margin-left: 16px;
+
 }
 .created-date span{
   color: #313030;
   margin-left: 12px;
   font-size: 1rem;
 }
- .fa-calendar{
+.fa-calendar{
   font-size: 14px;
   color: #AFAEAC;
 }
@@ -161,27 +186,7 @@ textarea:focus{
 .custom-date-input{
   margin-left: -40px;
 }
-.save-btn{
-  background-color: rgba(13, 169, 5, 0.8); /* Green background */
-  border: none;
-  color: white; /* White text */
-  padding: 5px 20px; /* Padding for size */
-  text-align: center; /* Center the text */
-  font-size: 16px; /* Set font size */
-  font-weight: bold; /* Make text bold */
-  border-radius: 3px; /* Rounded corners */
-}
-.delete-btn{
-  background-color: rgba(192, 7, 7, 0.8); /* Green background */
-  border: none;
-  color: white; /* White text */
-  padding: 5px 20px; /* Padding for size */
-  text-align: center; /* Center the text */
-  font-size: 16px; /* Set font size */
-  font-weight: bold; /* Make text bold */
-  border-radius: 3px; /* Rounded corners */
-}
-/* General styles for the date input */
+
 .custom-date-input {
   padding: 15px !important;
   border: 1px solid #ccc;
@@ -190,4 +195,45 @@ textarea:focus{
   color: #333;
   outline: none;
   cursor: pointer;
+}
+        .header .search input {
+            border-radius: 0 10px 10px 0;
+            padding-left: 15px;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s 0.1s, opacity 0.1s ease;
+        }
+
+        .header .search input.visible {
+            visibility: visible;
+            opacity: 1;
+            transition-delay: 0s;
+        }
+.header .search input:focus{
+  color: none;
+  background-color: none;
+  border: 1px solid #ccc;
+  outline: 0;
+  box-shadow: none;
+  
+}
+.search{
+  position: relative;
+
+}
+.search-icon{
+  position: absolute;
+  top: 50%;
+  font-size: 18px;
+  transform: translate(-50%,-50%);
+  background-color: #1657DC;
+  color: #fff;
+  padding: 12px;
+  border-radius: 0 10px 10px 0;
+  transition: all .3s ease;
+  cursor: pointer;
+}
+
+.search-animation{
+  margin-left: 100%;
 }
