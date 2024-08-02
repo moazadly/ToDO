@@ -156,7 +156,7 @@ function renderData(filteredTasks = tasksList){
             li.innerHTML = 
             `
                 <div class="task-title col-11 col-xl-8 break-word"><p class="ps-1">${task.title}</p></div>
-                <div class="task-date col-3 d-none d-xl-block"><i class="fa-regular fa-calendar pe-2"></i>${task.deadline}</div>
+                <div class="task-date col-4 col-xxl-3 d-none d-xl-block"><i class="fa-regular fa-calendar pe-2"></i>${task.deadline}</div>
             `
             todoList.append(li)
         }
