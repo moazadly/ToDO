@@ -14,19 +14,25 @@ const spandeadline = document.getElementById("spandeadline");
 const search = document.getElementById("search-input");
 const searchIcon = document.getElementById("searchIcon");
 const listContainer = document.getElementById("list");
+
+// get the current date
 const current = new Date();
 const day = current.getDate();
 const month = current.getMonth() + 1;
 const year = current.getFullYear();
 const currentDate = `${month}-${day}-${year}`;
-const minDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
-let tasksList = JSON.parse(localStorage.getItem('tasksList')) || [];
-let currentId = 0
-let checkEdit = false
 createdDate.innerText = `${currentDate}`
+
+
+const minDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
 deadline.setAttribute('min', minDate);
 
+
+let tasksList = JSON.parse(localStorage.getItem('tasksList')) || [];
+let currentId = 0
+
 renderData()
+
 function clacID(){
     maxId = 0;
     for (let index = 0; index < tasksList.length; index++) {
@@ -37,10 +43,14 @@ function clacID(){
     return ++maxId;
 }
 
+// set the deadline in form
+deadline.addEventListener("change",()=>{
+    spandeadline.innerText = `${deadline.value ? deadline.value : "Undated"}`
+});
+
 addBtn.addEventListener("click",()=>{
     ourFormDiv.classList.add("left-0")
     ourFormDiv.classList.remove("left-6")
-    currentId = 0
     let width = document.body.clientWidth;
     if(width < 1200){
         listContainer.classList.add("d-none")
@@ -50,21 +60,16 @@ addBtn.addEventListener("click",()=>{
 add.addEventListener("click",()=>{
     ourFormDiv.classList.add("left-0")
     ourFormDiv.classList.remove("left-6")
-    currentId = 0
     let width = document.body.clientWidth;
     if(width < 1200){
         listContainer.classList.add("d-none")
     }
 });
 
-deadline.addEventListener("change",()=>{
-    spandeadline.innerText = `${deadline.value ? deadline.value : "Undated"}`
-});
-
 saveBtn.addEventListener("click",()=>{
     ourFormDiv.classList.remove("left-0")
     ourFormDiv.classList.add("left-6")
-    if(checkEdit)
+    if(currentId != 0)
     {
         tasksList = tasksList.map((item) => {
             if (item.id === currentId) {
@@ -75,7 +80,7 @@ saveBtn.addEventListener("click",()=>{
             }
             return item; 
         });
-        checkEdit = false
+        currentId = 0
     }
     else{
         let task = {
@@ -107,7 +112,6 @@ function edit(task){
     spandeadline.innerText =  task.deadline;
     complete.checked = task.complete;
     currentId = task.id
-    checkEdit = true
     ourFormDiv.classList.add("left-0")
     ourFormDiv.classList.remove("left-6")
     let width = document.body.clientWidth;
@@ -118,12 +122,12 @@ function edit(task){
 
 deleteBtn.addEventListener("click",()=>{
     tasksList = tasksList.filter(task => task.id !== currentId);
+    currentId = 0
     title.value = ""
     description.value = ""
     deadline.value = ""
     spandeadline.innerText =  ""
     complete.checked = false
-    checkEdit = false
     renderData()
     localStorage.setItem('tasksList', JSON.stringify(tasksList));
     ourFormDiv.classList.remove("left-0")
@@ -158,6 +162,7 @@ function renderData(filteredTasks = tasksList){
         }
     });
 }
+
 search.addEventListener("input",()=>
 {
     let filter = search.value.toLowerCase();
@@ -167,58 +172,15 @@ search.addEventListener("input",()=>
     });
     renderData(filteredTasks);
 });
+
 function showSearch(){
     search.classList.toggle('visible');
     searchIcon.classList.toggle("search-animation")
+    if(!search.classList.contains('visible')){
+        search.value = "" 
+        renderData()  
+    }
 }
 
 window.edit = edit
 
-// // const obj = {
-// //     name: 'Alice',
-// //     greet: function() {
-// //         const innerArrowFunction = () => {
-// //             name: "moaz",
-// //             console.log(this.name); // Logs 'Alice'
-// //         };
-// //         innerArrowFunction();
-// //     }
-// // };
-// // obj.greet();
-// // function createCounter() {
-// //     let counter = 0;
-// //     function increment( ) {
-// //     counter++;
-// //     console.log(counter);
-// //     }
-// //     return increment;
-// // }
-// // function createCounter() {
-// //         let count = 0;
-    
-// //         return {
-// //             increment: function () {
-// //                 count++;
-// //                 return count;
-// //             },
-// //             decrement: function () {
-// //                 count--;
-// //                 return count;
-// //             },
-// //             getValue: function () {
-// //                 return count;
-// //             }
-// //         };
-// //     }
-// let name = "moaz"
-// let fuc = ()=>{
-//     this.age = 25
-//     console.log(name)
-// }
-// let obj = {name,fuc}
-// name = "ahmed"
-// obj.fuc()
-// console.log(obj)
-// // let count = createCounter();
-// // console.log(count.increment())
-// // console.log(count.increment())
